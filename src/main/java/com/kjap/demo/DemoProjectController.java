@@ -13,7 +13,7 @@ public class DemoProjectController {
 
 	@RequestMapping("/greeting")
 	public @ResponseBody String greeting() {
-		logger.info("Called");
+		logger.error("Called");
 		return "Hello from KJAP";
 	}
 }
