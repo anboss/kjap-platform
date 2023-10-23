@@ -32,7 +32,7 @@ pipeline {
         }
         stage('SnykScan'){
             steps{
-                snyk-scan
+                snyk-scan()
             }
         }
     }
