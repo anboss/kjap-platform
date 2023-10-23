@@ -38,11 +38,19 @@ pipeline {
                     def projectName= env.GIT_URL.replaceFirst(/^.*\/([^\/]+?).git$/, '$1')
                     echo "Project Name: ${projectName}"
                     //snykscan(${projectName})
-                    regex = r"([a-z]+):\\/\\/([^/]*)\\/([^/]*)\\/(.*)\\.git"
-                    test_str = "https://gitlab.com/example/test_backend.git"
-                    matches = re.finditer(regex, test_str, re.MULTILINE)
-                    name_space = matches.group(3)
-                    echo "${name_space}"
+                    url=env.GIT_URL
+
+                    re="^(https|git)(:\/\/|@)([^\/:]+)[\/:]([^\/:]+)\/(.+)(.git)*$"
+
+                    if [[ $url =~ $re ]]; then    
+                        protocol=${BASH_REMATCH[1]}
+                        separator=${BASH_REMATCH[2]}
+                        hostname=${BASH_REMATCH[3]}
+                        user=${BASH_REMATCH[4]}
+                        repo=${BASH_REMATCH[5]}
+                    fi
+                    echo "${user}"
+                    
                 }
             }
         }
