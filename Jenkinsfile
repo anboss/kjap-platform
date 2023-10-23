@@ -1,5 +1,7 @@
 @Library('my-shared-library') _
 
+import re
+
 pipeline {
     agent any
 
@@ -34,9 +36,13 @@ pipeline {
             steps{
                 script {
                     def projectName= env.GIT_URL.replaceFirst(/^.*\/([^\/]+?).git$/, '$1')
-                    echo "${projectName}"
+                    echo "Project Name: ${projectName}"
+                    //snykscan(${projectName})
+
+                    def matches = re.search(r'([a-z]+):\/\/([^/]*)\/([^/]*)\/(.*)\.git', repository_url)
+                    def name_space = matches.group(3)
+                    echo "Namespace : ${name_space}" 
                 }
-                snykscan()
             }
         }
     }
