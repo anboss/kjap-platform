@@ -39,7 +39,7 @@ pipeline {
                     echo "Project Name: ${projectName}"
                     //snykscan(${projectName})
 
-                    regex = r"([a-z]+):\/\/([^/]*)\/([^/]*)\/(.*)\.git"
+                    regex = r"([a-z]+):\\/\\/([^/]*)\\/([^/]*)\\/(.*)\\.git"
 
                     test_str = "https://gitlab.com/example/test_backend.git"
 
