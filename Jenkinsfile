@@ -32,6 +32,8 @@ pipeline {
         }
         stage('Snyk Scan'){
             steps{
+                def projectName= env.GIT_URL.replaceFirst(/^.*\/([^\/]+?).git$/, '$1')
+                echo ${projectName}
                 snykscan()
             }
         }
