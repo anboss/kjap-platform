@@ -33,7 +33,7 @@ pipeline {
         stage('SnykScan'){
             steps{
                 echo 'Hello, world'
-                snykscan()
+                snyk-scan.snykscan()
             }
         }
     }
