@@ -40,7 +40,7 @@ pipeline {
 
                     re="^(https|git)(:\\/\\/|@)([^\\/:]+)[\\/:]([^\\/:]+)\\/(.+)(.git)*$"
 
-                    if [[ $url =~ $re ]]; then    
+                    if [[ ${url} =~ ${re} ]]; then    
                         protocol=${BASH_REMATCH[1]}
                         separator=${BASH_REMATCH[2]}
                         hostname=${BASH_REMATCH[3]}
