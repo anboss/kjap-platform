@@ -1,5 +1,8 @@
 @Library('my-shared-library') _
 
+import com.cleverbuilder.GlobalVars
+import com.cleverbuilder.SampleClass
+
 pipeline {
     agent any
 
