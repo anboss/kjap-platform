@@ -38,7 +38,7 @@ pipeline {
                     //snykscan(${projectName})
                     def url=env.GIT_URL
                     echo "url-: ${url}"
-                    sh """
+                    sh '''
                     re="^(https|git)(:\\/\\/|@)([^\\/:]+)[\\/:]([^\\/:]+)\\/(.+)(.git)*\$"
                     echo "url: ${env.GIT_URL}"
                     echo "regex: ${re}"
@@ -50,7 +50,7 @@ pipeline {
                         repo=${BASH_REMATCH[5]}
                         echo "user: ${user}"
                     fi
-                    """
+                    '''
                 }
             }
         }
