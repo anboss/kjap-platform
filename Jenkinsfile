@@ -37,6 +37,7 @@ pipeline {
                     echo "Project Name: ${projectName}"
                     //snykscan(${projectName})
                     def url=env.GIT_URL
+                    echo "url-: ${url}"
                     sh '''
                     re="^(https|git)(:\\/\\/|@)([^\\/:]+)[\\/:]([^\\/:]+)\\/(.+)(.git)*\$"
                     echo "url: ${url}"
