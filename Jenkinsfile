@@ -36,19 +36,18 @@ pipeline {
                     def projectName= env.GIT_URL.replaceFirst(/^.*\/([^\/]+?).git$/, '$1')
                     echo "Project Name: ${projectName}"
                     //snykscan(${projectName})
-                    sh '''
                     url=env.GIT_URL
+                    sh '''
                     re="^(https|git)(:\\/\\/|@)([^\\/:]+)[\\/:]([^\\/:]+)\\/(.+)(.git)*\$"
-                    echo "${url}"
-                    echo "${re}"
+                    echo "url: ${url}"
+                    echo "regex: ${re}"
                     if [[ $url =~ $re ]]; then    
                         protocol=${BASH_REMATCH[1]}
                         separator=${BASH_REMATCH[2]}
                         hostname=${BASH_REMATCH[3]}
                         user=${BASH_REMATCH[4]}
                         repo=${BASH_REMATCH[5]}
-                                            echo "${user}"
-
+                        echo "user: ${user}"
                     fi
                     '''
                     
