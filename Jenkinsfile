@@ -1,3 +1,5 @@
+@Library('my-shared-library') _
+
 pipeline {
     agent any
 
@@ -30,7 +32,7 @@ pipeline {
         }
         stage('SnykScan'){
             steps{
-                snykSecurity failOnError: false, failOnIssues: false, organisation: 'anboss', projectName: 'kjap-platform', snykInstallation: 'MySnyk', snykTokenId: 'abf17a73-719c-40d5-97b5-dffad3856df7'
+                snyk-scan
             }
         }
     }
