@@ -8,6 +8,10 @@ pipeline {
         maven "MyMaven"
     }
 
+    environment {
+        GIT_USER = 'anboss'
+    }
+
     stages {
         stage('Build') {
             steps {
@@ -35,15 +39,8 @@ pipeline {
                 script {
                     def projectName= env.GIT_URL.replaceFirst(/^.*\/([^\/]+?).git$/, '$1')
                     echo "Project Name: ${projectName}"
-                    //snykscan(${projectName})
-                    def url=env.GIT_URL
-                    echo "url-: ${url}"
-                    
-                    def url_without_suffix="${url%.*}"
-                    def reponame="$(basename "${url_without_suffix}")"
-                    def hostname="$(basename "${url_without_suffix%/${reponame}}")"
-
-                    echo ${hostname}
+                    echo "env.GIT_USER"
+                    //snykscan(${projectName}, env.GIT_USER)
                 }
             }
         }
