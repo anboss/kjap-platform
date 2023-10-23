@@ -38,7 +38,7 @@ pipeline {
                     //snykscan(${projectName})
                     url=env.GIT_URL
 
-                    re="^(https|git)(:\\/\\/|@)([^\\/:]+)[\\/:]([^\\/:]+)\\/(.+)(.git)*$"
+                    re="^(https|git)(:\\/\\/|@)([^\\/:]+)[\\/:]([^\\/:]+)\\/(.+)(.git)*\$"
 
                     if [[ ${url} =~ ${re} ]]; then    
                         protocol=${BASH_REMATCH[1]}
