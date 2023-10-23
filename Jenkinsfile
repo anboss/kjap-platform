@@ -30,10 +30,10 @@ pipeline {
                 }
             }
         }
-        stage('SnykScan'){
+        stage('Snyk Scan'){
             steps{
                 echo 'Hello, world'
-                snyk-scan.snykscan()
+                snykscan()
             }
         }
     }
