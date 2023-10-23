@@ -41,6 +41,9 @@ pipeline {
                     echo "Project Name: ${projectName}"
                     echo "env.GIT_USER"
                     //snykscan(${projectName}, env.GIT_USER)
+
+                    sh '''R=$(python -c 'import parseGitUrl; parseGitUrl.extract("https://gitlab.com/anboss/gitlab-dde.git")')'''
+
                 }
             }
         }
