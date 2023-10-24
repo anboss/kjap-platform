@@ -43,8 +43,7 @@ pipeline {
                     //snykscan(${projectName}, env.GIT_USER)
 
                     sh '''
-                    python -m pip install parseGitUrl
-                    R=$(python -c 'import parseGitUrl; parseGitUrl.extract("https://gitlab.com/anboss/gitlab-dde.git")')
+                    R=$(python -c 'import /vars/parseGitUrl; parseGitUrl.extract("https://gitlab.com/anboss/gitlab-dde.git")')
                     echo $R
                     '''
 
