@@ -40,14 +40,8 @@ pipeline {
                     def projectName= env.GIT_URL.replaceFirst(/^.*\/([^\/]+?).git$/, '$1')
                     echo "Project Name: ${projectName}"
                     echo "env.GIT_USER"
-                    //snykscan(${projectName}, env.GIT_USER)
-
-                    sh '''
-                    R=$(python -c 'import /vars/parseGitUrl; parseGitUrl.extract("https://gitlab.com/anboss/gitlab-dde.git")')
-                    echo $R
-                    '''
-
-                }
+                    snykscan(${projectName}, env.GIT_USER)
+               }
             }
         }
     }
