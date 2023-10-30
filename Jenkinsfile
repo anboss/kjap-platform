@@ -23,8 +23,10 @@ pipeline {
         stage('Build') {
             steps {
                 git 'https://github.com/anboss/kjap-platform.git'
-				git checkout feature/snyk
-                sh "mvn -Dmaven.test.failure.ignore=true -DskipTests=true clean package"
+				script {
+					sh 'git checkout feature/snyk'
+					sh "mvn -Dmaven.test.failure.ignore=true -DskipTests=true clean package"
+				}
             }
             // post {
             //     success {
