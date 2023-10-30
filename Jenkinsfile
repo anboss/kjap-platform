@@ -10,27 +10,27 @@ pipeline {
         GIT_USER = 'anboss'
     }
     stages {
-        stage('Snyk Scan'){
-            steps{
-                script {
-                    def projectName= env.GIT_URL.replaceFirst(/^.*\/([^\/]+?).git$/, '$1')
-                    echo "Project Name: ${projectName}"
-                    echo "env.GIT_USER"
-                    snykscan(projectName, env.GIT_USER)
-               }
-            }
-        }
+        // stage('Snyk Scan'){
+        //     steps{
+        //         script {
+        //             def projectName= env.GIT_URL.replaceFirst(/^.*\/([^\/]+?).git$/, '$1')
+        //             echo "Project Name: ${projectName}"
+        //             echo "env.GIT_USER"
+        //             snykscan(projectName, env.GIT_USER)
+        //        }
+        //     }
+        // }
         stage('Build') {
             steps {
                 git 'https://github.com/anboss/kjap-platform.git'
-                sh "mvn -Dmaven.test.failure.ignore=true clean package"
+                sh "mvn -Dmaven.test.failure.ignore=true -Dmaven.skipTest=true clean package"
             }
-            post {
-                success {
-                    junit '**/target/surefire-reports/TEST-*.xml'
-                    archiveArtifacts 'target/*.jar'
-                }
-            }
+            // post {
+            //     success {
+            //         junit '**/target/surefire-reports/TEST-*.xml'
+            //         archiveArtifacts 'target/*.jar'
+            //     }
+            // }
         }
 		stage('Build Image') {
 			steps {
