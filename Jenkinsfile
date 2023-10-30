@@ -32,5 +32,10 @@ pipeline {
                 }
             }
         }
+		stage('Build Image') {
+			steps {
+				sh 'docker build -t ananth2kannan/kjap-platform .'
+			}
+		}
     }
 }
