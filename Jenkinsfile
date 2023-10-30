@@ -37,7 +37,7 @@ pipeline {
         }
 		stage('Build Image') {
 			steps {
-				sh 'docker build -t ananth2kannan/kjap-platform C:/ProgramData/Jenkins/.jenkins/workspace/MyMBP_feature_snyk'
+				sh 'docker build -t ananth2kannan/kjap-platform .'
 			}
 		}
     }
