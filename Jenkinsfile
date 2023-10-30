@@ -23,7 +23,7 @@ pipeline {
         stage('Build') {
             steps {
                 git 'https://github.com/anboss/kjap-platform.git'
-                sh "mvn -Dmaven.test.failure.ignore=true -Dmaven.skipTests=true clean package"
+                sh "mvn -Dmaven.test.failure.ignore=true -DskipTests=true clean package"
             }
             // post {
             //     success {
@@ -34,7 +34,7 @@ pipeline {
         }
 		stage('Build Image') {
 			steps {
-				sh 'docker build -t ananth2kannan/kjap-platform C:/Users/an_bo/Desktop/kjap-platform'
+				sh 'docker build -t ananth2kannan/kjap-platform .'
 			}
 		}
     }
