@@ -34,7 +34,7 @@ pipeline {
         }
 		stage('Build Image') {
 			steps {
-				sh 'docker build -t ananth2kannan/kjap-platform /app'
+				sh 'docker build -t ananth2kannan/kjap-platform C:/Users/an_bo/Desktop/kjap-platform'
 			}
 		}
     }
