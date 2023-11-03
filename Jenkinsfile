@@ -25,7 +25,7 @@ pipeline {
                 git 'https://github.com/anboss/kjap-platform.git'
 				script {
 					sh 'git checkout feature/snyk'
-					sh "mvn -Dmaven.test.failure.ignore=true -DskipTests=true clean package"
+					sh "mvn clean package"
 				}
             }
             post {
