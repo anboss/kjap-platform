@@ -37,8 +37,10 @@ pipeline {
         }
 		stage('Build Image') {
 			steps {
-				sh 'docker build -t ananth2kannan/kjap-platform .'
-				snyk test container ananth2kannan/kjap-platform:latest
+				script{
+					sh 'docker build -t ananth2kannan/kjap-platform .'
+					sh 'snyk container test ananth2kannan/kjap-platform:latest'
+				}
 			}
 		}
     }
