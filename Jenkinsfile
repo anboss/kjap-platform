@@ -39,7 +39,7 @@ pipeline {
 			steps {
 				script{
 					sh 'docker build -t ananth2kannan/kjap-platform .'
-					snykSecurity(snykInstallation: 'MySnyk@latest',
+					snykSecurity(snykInstallation: 'MySnyk',
 						    snykTokenId: 'snyk-token',
 						     failOnIssues: false,
 						     monitorProjectOnBuild: true,
