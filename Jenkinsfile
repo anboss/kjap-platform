@@ -11,12 +11,7 @@ pipeline {
     }
     stages {
         stage('Snyk Scan'){
-            steps{
-
-		withCredentials([string(credentialsId: 'snyk-token-secret', variable: 'snyk-token')]) {
-		    sh '${snyk-token}'
-		}
-		    
+            steps{	    
                 script {
                     def projectName= env.GIT_URL.replaceFirst(/^.*\/([^\/]+?).git$/, '$1')
                     echo "Project Name: ${projectName}"
