@@ -13,7 +13,7 @@ pipeline {
         stage('Snyk Scan'){
             steps{
 
-		withCredentials([snykTokenId(credentialsId: 'snyk-token', variable: 'snyk-token')]) {
+		withCredentials([snykTokenId(credentialsId: 'snyk-token-secret', variable: 'snyk-token')]) {
 		    sh '${snyk-token}'
 		}
 		    
