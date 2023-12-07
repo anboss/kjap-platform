@@ -35,18 +35,18 @@ pipeline {
                 }
             }
         }
-		stage('Build Image') {
-			steps {
-				script{
-					sh 'docker build -t ananth2kannan/kjap-platform .'
-					snykSecurity(snykInstallation: 'MySnyk',
-						    snykTokenId: 'snyk-token',
-						     failOnIssues: false,
-						     monitorProjectOnBuild: true,
-						     additionalArguments: '--container ananth2kannan/kjap-platform:latest'  
-						    )
- 				}
-			}
-		}
+		// stage('Build Image') {
+		// 	steps {
+		// 		script{
+		// 			sh 'docker build -t ananth2kannan/kjap-platform .'
+		// 			snykSecurity(snykInstallation: 'MySnyk',
+		// 				    snykTokenId: 'snyk-token',
+		// 				     failOnIssues: false,
+		// 				     monitorProjectOnBuild: true,
+		// 				     additionalArguments: '--container ananth2kannan/kjap-platform:latest'  
+		// 				    )
+ 	// 			}
+		// 	}
+		// }
     }
 }
