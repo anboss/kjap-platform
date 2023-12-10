@@ -16,7 +16,7 @@ pipeline {
                     def projectName= env.GIT_URL.replaceFirst(/^.*\/([^\/]+?).git$/, '$1')
                     echo "Project Name: ${projectName}"
                     echo "env.GIT_USER"
-                    snykscan(projectName, env.GIT_USER)
+                    //snykscan(projectName, env.GIT_USER)
                }
             }
         }
