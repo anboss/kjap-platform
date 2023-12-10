@@ -16,7 +16,7 @@ pipeline {
                     def projectName= env.GIT_URL.replaceFirst(/^.*\/([^\/]+?).git$/, '$1')
                     echo "Project Name: ${projectName}"
                     echo "env.GIT_USER"
-                    //snykscan(projectName, env.GIT_USER)
+                    snykscan(projectName, env.GIT_USER)
                }
             }
         }
@@ -35,18 +35,18 @@ pipeline {
                 }
             }
         }
-		stage('Build Image') {
-			steps {
-				script{
-					sh 'docker build -t ananth2kannan/kjap-platform .'
-					snykSecurity(snykInstallation: 'MySnyk',
-						    snykTokenId: 'snyk-token',
-						     failOnIssues: false,
-						     monitorProjectOnBuild: true,
-						     additionalArguments: '--container ananth2kannan/kjap-platform:latest'  
-						    )
- 				}
-			}
-		}
+		// stage('Build Image') {
+		// 	steps {
+		// 		script{
+		// 			sh 'docker build -t ananth2kannan/kjap-platform .'
+		// 			snykSecurity(snykInstallation: 'MySnyk',
+		// 				    snykTokenId: 'snyk-token',
+		// 				     failOnIssues: false,
+		// 				     monitorProjectOnBuild: true,
+		// 				     additionalArguments: '--container ananth2kannan/kjap-platform:latest'  
+		// 				    )
+ 	// 			}
+		// 	}
+		// }
     }
 }
